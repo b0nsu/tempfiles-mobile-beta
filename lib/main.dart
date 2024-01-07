@@ -5,7 +5,11 @@ import 'package:tempfiles_mobile_beta/features/tmp_files/presentation/bloc/delet
 import 'package:tempfiles_mobile_beta/features/tmp_files/presentation/bloc/download/download_file_bloc.dart';
 import 'package:tempfiles_mobile_beta/features/tmp_files/presentation/bloc/list/remote_folder_list_bloc.dart';
 import 'package:tempfiles_mobile_beta/features/tmp_files/presentation/bloc/remote/remote_files_bloc.dart';
+import 'package:tempfiles_mobile_beta/features/tmp_files/presentation/bloc/upload/upload_file_bloc.dart';
+import 'package:tempfiles_mobile_beta/features/tmp_files/presentation/cubit/checkbox_group_cubit.dart';
+import 'package:tempfiles_mobile_beta/features/tmp_files/presentation/cubit/slider_cubit.dart';
 import 'package:tempfiles_mobile_beta/features/tmp_files/presentation/cubit/text_cubit.dart';
+import 'package:tempfiles_mobile_beta/features/tmp_files/presentation/cubit/times_cubit.dart';
 
 import 'config/routes/router.dart';
 import 'features/tmp_files/presentation/pages/home/home_page.dart';
@@ -28,9 +32,15 @@ class MainApp extends StatelessWidget {
         BlocProvider<RemoteFilesBloc>(
           create: (context) => sl<RemoteFilesBloc>(),
         ),
+        BlocProvider<UploadFileBloc>(
+          create: (context) => sl<UploadFileBloc>(),
+        ),
         BlocProvider.value(value: sl<DeleteFileBloc>()),
         BlocProvider.value(value: sl<DownloadFileBloc>()),
         BlocProvider.value(value: sl<TextCubit>()),
+        BlocProvider.value(value: sl<CheckBoxCubit>()),
+        BlocProvider.value(value: sl<SliderCubit>()),
+        BlocProvider.value(value: sl<ExpireTimeCubit>()),
       ],
       child: MaterialApp(
         onGenerateRoute: AppRoutes.onGenerateRoutes,

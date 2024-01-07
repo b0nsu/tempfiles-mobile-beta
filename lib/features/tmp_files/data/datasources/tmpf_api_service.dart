@@ -26,10 +26,11 @@ abstract class TmpfApiService {
 
   @POST('/upload')
   @MultiPart()
-  Future<HttpResponse> uploadFile({
+  Future<HttpResponse<FolderDTO>> uploadFile({
     @Header('X-Hidden') bool? isHidden,
     @Header('X-Download-Limit') int? downloadLimit,
     @Header('X-Time-Limit') int? expireTime,
     @Part(name: 'file') List<MultipartFile>? files,
+    @SendProgress() ProgressCallback? onSendProgress,
   });
 }

@@ -11,9 +11,14 @@ import 'domain/usecases/delete_folder.dart';
 import 'domain/usecases/download_file.dart';
 import 'domain/usecases/get_folder.dart';
 import 'domain/usecases/get_folder_list.dart';
+import 'domain/usecases/upload_file.dart';
 import 'presentation/bloc/list/remote_folder_list_bloc.dart';
 import 'presentation/bloc/remote/remote_files_bloc.dart';
+import 'presentation/bloc/upload/upload_file_bloc.dart';
+import 'presentation/cubit/checkbox_group_cubit.dart';
+import 'presentation/cubit/slider_cubit.dart';
 import 'presentation/cubit/text_cubit.dart';
+import 'presentation/cubit/times_cubit.dart';
 
 final sl = GetIt.instance;
 
@@ -26,14 +31,14 @@ Future<void> initializeDependencies() async {
   // TextField
   sl.registerFactory(() => TextCubit(sl));
 
-  // // CheckBox
-  // sl.registerFactory(() => CheckBoxCubit(sl));
+  // CheckBox
+  sl.registerFactory(() => CheckBoxCubit(sl));
 
-  // // Slider
-  // sl.registerFactory(() => SliderCubit(sl));
+  // Slider
+  sl.registerFactory(() => SliderCubit(sl));
 
-  // // Time
-  // sl.registerFactory(() => ExpireTimeCubit(sl));
+  // Time
+  sl.registerFactory(() => ExpireTimeCubit(sl));
 
   // Folder List
   sl.registerSingleton<GetFolderListUseCase>(GetFolderListUseCase(sl()));
@@ -51,7 +56,7 @@ Future<void> initializeDependencies() async {
   sl.registerSingleton<DeleteFolderUseCase>(DeleteFolderUseCase(sl()));
   sl.registerFactory(() => DeleteFileBloc(sl()));
 
-  // // File Upload
-  // sl.registerSingleton<UploadFileUseCase>(UploadFileUseCase(sl()));
-  // sl.registerFactory(() => UploadFileBloc(sl()));
+  // File Upload
+  sl.registerSingleton<UploadFileUseCase>(UploadFileUseCase(sl()));
+  sl.registerFactory(() => UploadFileBloc(sl()));
 }

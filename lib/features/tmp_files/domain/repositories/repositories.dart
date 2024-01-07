@@ -20,7 +20,7 @@ abstract class FolderRepository {
     String? folderId,
   });
 
-  Future<DataState> uploadFile({
+  Future<DataState<FolderEntity>> uploadFile({
     FileUploadParams? uploadParams,
   });
 }

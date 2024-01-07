@@ -114,7 +114,7 @@ class FolderRepositoryImpl implements FolderRepository {
   }
 
   @override
-  Future<DataState> uploadFile({
+  Future<DataState<FolderEntity>> uploadFile({
     FileUploadParams? uploadParams,
   }) async {
     try {
@@ -128,6 +128,7 @@ class FolderRepositoryImpl implements FolderRepository {
             uploadParams.files!.paths[index]!,
           ),
         ),
+        onSendProgress: uploadParams.onSendProgress,
       );
 
       if (httpResponse.response.statusCode == HttpStatus.ok) {

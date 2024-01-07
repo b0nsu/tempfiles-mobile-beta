@@ -6,6 +6,7 @@ import '../../features/tmp_files/presentation/pages/detail/detail_page.dart';
 import '../../features/tmp_files/presentation/pages/home/home_page.dart';
 import '../../features/tmp_files/presentation/pages/list/list_page.dart';
 import '../../features/tmp_files/presentation/pages/search/search_page.dart';
+import '../../features/tmp_files/presentation/pages/upload/upload_page.dart';
 
 class AppRoutes {
   static Route onGenerateRoutes(RouteSettings settings) {
@@ -16,15 +17,11 @@ class AppRoutes {
       case '/search':
         return _materialRoute(const SearchPage());
 
-      // case '/upload':
-      //   return _materialRoute(const UploadPage());
+      case '/upload':
+        return _materialRoute(const UploadPage());
 
       case '/more':
         return _materialRoute(const ListPage());
-
-      // case '/folder':
-      //   return _materialRoute(
-      //       DetailPage(folderId: settings.arguments as String));
 
       case '/folder':
         return MaterialPageRoute(
