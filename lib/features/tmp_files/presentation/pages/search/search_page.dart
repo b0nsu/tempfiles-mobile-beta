@@ -5,9 +5,14 @@ import 'package:tempfiles_mobile_beta/features/tmp_files/presentation/widgets/cu
 
 import '../../widgets/custom_bottom_navigator.dart';
 
-class SearchPage extends StatelessWidget {
+class SearchPage extends StatefulWidget {
   const SearchPage({Key? key}) : super(key: key);
 
+  @override
+  State<SearchPage> createState() => _SearchPageState();
+}
+
+class _SearchPageState extends State<SearchPage> {
   final int _currentIndex = 1;
 
   @override
@@ -119,7 +124,14 @@ class SearchPage extends StatelessWidget {
     );
   }
 
-  void _onFolderPressed(BuildContext context, String folderId) {
-    Navigator.pushNamed(context, '/folder', arguments: folderId);
+  void _onFolderPressed(BuildContext context, String folderId) async {
+    final result =
+        await Navigator.pushNamed(context, '/folder', arguments: folderId);
+
+    if (!mounted) return;
+    if (result == null) return;
+
+    ScaffoldMessenger.of(context)
+        .showSnackBar(SnackBar(content: Text('$result')));
   }
 }

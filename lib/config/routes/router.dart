@@ -5,6 +5,7 @@ import 'package:tempfiles_mobile_beta/features/tmp_files/presentation/bloc/remot
 import '../../features/tmp_files/presentation/pages/detail/detail_page.dart';
 import '../../features/tmp_files/presentation/pages/home/home_page.dart';
 import '../../features/tmp_files/presentation/pages/list/list_page.dart';
+import '../../features/tmp_files/presentation/pages/search/search_page.dart';
 
 class AppRoutes {
   static Route onGenerateRoutes(RouteSettings settings) {
@@ -12,8 +13,8 @@ class AppRoutes {
       case '/':
         return _materialRoute(const HomePage());
 
-      // case '/search':
-      //   return _materialRoute(const SearchPage());
+      case '/search':
+        return _materialRoute(const SearchPage());
 
       // case '/upload':
       //   return _materialRoute(const UploadPage());
