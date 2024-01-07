@@ -64,7 +64,7 @@ class FolderRepositoryImpl implements FolderRepository {
   }) async {
     try {
       final url =
-          '$tmpfAPIBaseURL/dl/${downloadParams!.folderID}/${downloadParams.fileName}';
+          '$tmpfAPIBaseURL/dl/${downloadParams!.folderId}/${downloadParams.fileName}';
       Directory externalDirectory = Directory('/storage/emulated/0/Download');
       final saveFilePath =
           '${externalDirectory.path}/${downloadParams.fileName}';

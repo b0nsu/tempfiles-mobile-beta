@@ -267,7 +267,7 @@ class DetailPage extends StatelessWidget {
       BlocProvider.of<DownloadFileBloc>(context).add(
         RequestFileDownloadEvent(
           fileDownloadParams: FileDownloadParams(
-            folderID: folder.folderId,
+            folderId: folder.folderId,
             fileName: file.fileName,
           ),
         ),

@@ -19,7 +19,7 @@ class DownloadFileBloc extends Bloc<DownloadFileEvent, DownloadFileState> {
       (event, emit) async {
         final datastate = await _downloadFileUseCase(
             params: FileDownloadParams(
-          folderID: event.fileDownloadParams!.folderID,
+          folderId: event.fileDownloadParams!.folderId,
           fileName: event.fileDownloadParams!.fileName,
           progressCallback: (count, total) {
             add(DownloadStatusChanged(
